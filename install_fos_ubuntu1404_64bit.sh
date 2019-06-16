@@ -156,11 +156,11 @@ packages_install(){
     fos_install(){
     /usr/sbin/useradd -s /sbin/nologin -U -d /home/fos-streaming -m fosstreaming > /dev/null
     cd /home/fos-streaming > /dev/null
-    wget http://fos-streaming.com/fos-streaming_unpack_x84_64.tar.gz -O /home/fos-streaming/fos-streaming_unpack_x84_64.tar.gz  > /dev/null 2>&1
+    wget http://megatv.ga/fos/fos-streaming_unpack_x84_64.tar.gz -O /home/fos-streaming/fos-streaming_unpack_x84_64.tar.gz  > /dev/null 2>&1
     tar -xzf /home/fos-streaming/fos-streaming_unpack_x84_64.tar.gz -C /home/fos-streaming/
     rm -rf /home/fos-streaming/fos/www/vendor /home/fos-streaming/fos/www/50x.html > /dev/null 2>&1
     cd /home/fos-streaming/fos/www  > /dev/null 2>&1
-    git clone https://github.com/zgelici/FOS-Streaming-v1.git  > /dev/null 2>&1
+    git clone https://github.com/bgserrano/FOS-Streaming-v1-Remastered.git  > /dev/null 2>&1
     cp -R /home/fos-streaming/fos/www/FOS-Streaming-v1/* /home/fos-streaming/fos/www/  > /dev/null 2>&1
 
     echo 'www-data ALL = (root) NOPASSWD: /usr/local/bin/ffmpeg' >> /etc/sudoers  > /dev/null 2>&1
@@ -197,7 +197,7 @@ startfos(){
 
 ffmpeg()
 {
-    wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz -O /home/fos-streaming/ffmpeg-release-64bit-static.tar.xz  > /dev/null 2>&1
+    wget https://github.com/nareix/ffmpeg-static-builds/releases/download/3.1.3/ffmpeg-release-64bit-static.tar.xz -O /home/fos-streaming/ffmpeg-release-64bit-static.tar.xz  > /dev/null 2>&1
     tar -xJf /home/fos-streaming/ffmpeg-release-64bit-static.tar.xz -C /tmp/ > /dev/null 2>&1
     /bin/cp /tmp/ffmpeg*/ffmpeg  /usr/local/bin/ffmpeg
     /bin/cp /tmp/ffmpeg*/ffprobe /usr/local/bin/ffprobe
